@@ -1,6 +1,5 @@
 from typing import List
 
-
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
         city_set = set()
