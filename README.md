@@ -12,6 +12,7 @@ Leet Code Python Project
 ## How do test your code?
 
 ```console
-$ pytest src/p1436_destination_city/
+$ pytest -s src/p1436_destination_city/
 ```
 
+`-s` it stands for "no-capture" and allows the output from print() statements and other standard output to be displayed in the terminal.
