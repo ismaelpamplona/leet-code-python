@@ -1,4 +1,4 @@
-class ListNode:
+class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
@@ -31,3 +31,33 @@ class ListNode:
 
     def delete_node(self, prev_node):
         prev_node.next = prev_node.next.next
+
+
+class DoublyNode:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+        self.prev = None
+
+    def __str__(self, indent=""):
+        if self.next is None:
+            if self.prev is None:
+                return f"DoublyNode {{\n{indent}  val: {self.val},\n{indent}  next: None,\n{indent}  prev: None\n{indent}}}"
+            else:
+                return f"DoublyNode {{\n{indent}  val: {self.val},\n{indent}  next: None,\n{indent}  prev: {self.prev.val}\n{indent}}}"
+        else:
+            next_indent = indent + "    "
+            if self.prev is None:
+                return f"DoublyNode {{\n{indent}  val: {self.val},\n{indent}  next: {self.next.__str__(next_indent)},\n{indent}  prev: None\n{indent}}}"
+            else:
+                return f"DoublyNode {{\n{indent}  val: {self.val},\n{indent}  next: {self.next.__str__(next_indent)},\n{indent}  prev: {self.prev.val}\n{indent}}}"
+
+
+    def add_node(self, next_node, node_to_add):
+        node_to_add.next = next_node
+        node_to_add.prev = next_node.prev
+        next_node.prev.next = node_to_add
+        next_node.prev = node_to_add
+
+
+
