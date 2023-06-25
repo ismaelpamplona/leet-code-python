@@ -65,6 +65,53 @@ class DoublyNode:
         if node.next:
             node.next.prev = node.prev
 
+class SentinelNode:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+        self.prev = None
+
+    def __str__(self, indent=""):
+        if self.next is None:
+            if self.prev is None:
+                return f"SentinelNode {{\n{indent}  val: {self.val},\n{indent}  next: None,\n{indent}  prev: None\n{indent}}}"
+            else:
+                return f"SentinelNode {{\n{indent}  val: {self.val},\n{indent}  next: None,\n{indent}  prev: {self.prev.val}\n{indent}}}"
+        else:
+            next_indent = indent + "    "
+            if self.prev is None:
+                return f"SentinelNode {{\n{indent}  val: {self.val},\n{indent}  next: {self.next.__str__(next_indent)},\n{indent}  prev: None\n{indent}}}"
+            else:
+                return f"SentinelNode {{\n{indent}  val: {self.val},\n{indent}  next: {self.next.__str__(next_indent)},\n{indent}  prev: {self.prev.val}\n{indent}}}"        
+
+    def add_to_end(self, node_to_add, tail):
+        node_to_add.next = tail
+        node_to_add.prev = tail.prev
+        if tail.prev and tail.prev.next:
+            tail.prev.next = node_to_add
+        tail.prev = node_to_add
+
+    def delete_from_end(self, head, tail):
+        if head.next is not tail:
+            if tail.prev.prev:
+                tail.prev.prev.next = tail
+            if tail.prev:
+                tail.prev = tail.prev.prev
+    
+    def add_to_start(self, node_to_add, head):
+        node_to_add.prev = head
+        node_to_add.next = head.next
+        if head.next:
+            head.next.prev = node_to_add
+        head.next = node_to_add
+
+    def delete_from_start(self, head, tail):
+        if head.next is not tail:
+            if head.next.next:
+                head.next.next.prev = head
+            if head.next:
+                head.next = head.next.next
+
 
 
 
