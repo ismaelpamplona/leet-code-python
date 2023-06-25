@@ -19,6 +19,6 @@ def test_add_node_doubly():
     print(head)
 
 def test_delete_node_doubly():
-    head.delete_node(three)
+    head.delete_node(five)
     print(head)    
 
