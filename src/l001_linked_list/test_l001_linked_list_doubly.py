@@ -18,3 +18,7 @@ def test_add_node_doubly():
     head.add_node(five, four)
     print(head)
 
+def test_delete_node_doubly():
+    head.delete_node(three)
+    print(head)    
+

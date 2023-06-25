@@ -59,5 +59,9 @@ class DoublyNode:
         next_node.prev.next = node_to_add
         next_node.prev = node_to_add
 
+    def delete_node(self, node):
+        node.prev.next = node.next
+        node.next.prev = node.prev
+
 
 
