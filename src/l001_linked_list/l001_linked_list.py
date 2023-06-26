@@ -32,6 +32,31 @@ class Node:
     def delete_node(self, prev_node):
         prev_node.next = prev_node.next.next
 
+    def get_middle_node_iterating(self):
+        size = 0
+        dummy = self
+
+        while dummy:
+            size += 1
+            dummy = dummy.next
+
+        head = self    
+        for i in range(size // 2):
+            if head:
+                head = head.next
+
+        return head
+
+    def get_middle_node_pointers(self):
+        slow = self
+        fast = self
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        
+        return slow
+
 
 class DoublyNode:
     def __init__(self, val):

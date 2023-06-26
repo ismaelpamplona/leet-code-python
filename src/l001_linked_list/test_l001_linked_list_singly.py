@@ -18,11 +18,16 @@ def test_get_sum_singly():
 def test_get_sum_rec_singly():
     assert head.get_sum_rec() == 11
 
+def test_delete_node_singly():
+    head.delete_node(three)
+    # print(head)
+
 def test_add_node_singly():
     head.add_node(head.next.next, four)
     # print(head)
 
-def test_delete_node_singly():
-    head.delete_node(three)
-    # print(head)
+
+def test_middle_node():
+    assert head.get_middle_node_iterating().val == 3
+    assert head.get_middle_node_pointers().val == 3
 
