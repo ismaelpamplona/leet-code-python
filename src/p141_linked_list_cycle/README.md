@@ -1,4 +1,4 @@
-# p141-linked-list-cycle
+# p141_linked_list_cycle
 [https://leetcode.com/problems/linked-list-cycle](https://leetcode.com/problems/linked-list-cycle)
 
 ## First approach - HashSet

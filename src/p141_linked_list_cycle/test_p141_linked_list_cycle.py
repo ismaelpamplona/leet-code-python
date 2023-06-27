@@ -14,7 +14,7 @@ def test_01():
     assert result1 == True
     assert result2 == True
 
-def test_0():
+def test_02():
     head = ListNode(2)
     second = ListNode(1)
     head.next = second
@@ -24,7 +24,7 @@ def test_0():
     assert result1 == True
     assert result2 == True
 
-def test_0():
+def test_03():
     head = ListNode(1)
     result1 = Solution().hasCycleSet(head)
     result2 = Solution().hasCycleFloyds(head)
