@@ -58,6 +58,3 @@ class Solution:
         mid = math.floor(len(vec)/2)
         return vec[mid]
 
-
-    # def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-
