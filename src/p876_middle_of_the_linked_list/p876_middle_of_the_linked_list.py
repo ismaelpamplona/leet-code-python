@@ -56,5 +56,5 @@ class Solution:
             cur = cur.next
         
         mid = math.floor(len(vec)/2)
-        return vec[mid]
+        return vec[mid]c
 
