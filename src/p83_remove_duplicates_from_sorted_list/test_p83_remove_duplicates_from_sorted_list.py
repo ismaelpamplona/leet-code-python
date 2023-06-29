@@ -1,7 +1,6 @@
 from p83_remove_duplicates_from_sorted_list import Solution, ListNode
 
 def test_transformation():
-    print("PIROCA")
     head = [1,2,3,4,5]
     output = [3,4,5]
     linked1 = Solution().from_vec_to_list_it(head)
