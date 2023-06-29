@@ -1,4 +1,4 @@
-from l0010_reversing_linked_list import Solution, ListNode
+from l003_reversing_linked_list import Solution, ListNode
 
 def test_01():
     head = Solution().from_vec_to_list_rec([1, 2, 3, 4, 5])
