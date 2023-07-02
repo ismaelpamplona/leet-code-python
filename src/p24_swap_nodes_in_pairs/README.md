@@ -1,4 +1,4 @@
-# p24_-_swap_-_nodes_-_in_-_pairs
+# p24_swap_nodes_in_pairs
 [https://leetcode.com/problems/swap-nodes-in-pairs/](https://leetcode.com/problems/swap-nodes-in-pairs/)
 
 ## Initial provided code
