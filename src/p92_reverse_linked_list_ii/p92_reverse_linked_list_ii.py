@@ -34,7 +34,7 @@ class Solution:
         return dummy.next
 
     def reverse_between_rec(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
-        def reverse(before: Optional[head], left: int, right: int):
+        def reverse(before: Optional[ListNode], left: int, right: int):
             if right == left:
                 return before.next
 
