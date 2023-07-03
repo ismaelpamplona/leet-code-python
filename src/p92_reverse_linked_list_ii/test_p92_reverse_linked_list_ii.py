@@ -11,18 +11,24 @@ def test_transformation():
 
 def test_01():
     head1 = Solution().from_vec_to_list_rec([1, 2, 3, 4, 5])
+    head2 = Solution().from_vec_to_list_rec([1, 2, 3, 4, 5])
     output = [1, 4, 3, 2, 5]
     reversed1 = Solution().reverse_between_it(head1, 2, 4)
+    reversed2 = Solution().reverse_between_rec(head2, 2, 4)
     assert Solution().from_list_to_vec(reversed1) == output
 
 def test_02():
     head1 = Solution().from_vec_to_list_rec([5])
+    head2 = Solution().from_vec_to_list_rec([5])
     output = [5]
     reversed1 = Solution().reverse_between_it(head1, 1, 1)
+    reversed2 = Solution().reverse_between_rec(head2, 1, 1)
     assert Solution().from_list_to_vec(reversed1) == output
 
 def test_03():
     head1 = Solution().from_vec_to_list_rec([1, 2, 3, 4, 5, 6, 7])
+    head2 = Solution().from_vec_to_list_rec([1, 2, 3, 4, 5, 6, 7])
     output = [1, 2, 5, 4, 3, 6, 7]
     reversed1 = Solution().reverse_between_it(head1, 3, 5)
+    reversed2 = Solution().reverse_between_rec(head2, 3, 5)
     assert Solution().from_list_to_vec(reversed1) == output

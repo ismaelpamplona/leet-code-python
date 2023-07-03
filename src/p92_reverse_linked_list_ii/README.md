@@ -21,5 +21,11 @@ So, at this point I know:
 
 - n = number of nodes
 - time complexity: O(n)
-- space complexity: O(n)
+- space complexity: O(1)
+
+## First approach - Recursive
+
+- n = number of nodes
+- time complexity: O(n)
+- space complexity: O(1)
 

@@ -33,6 +33,43 @@ class Solution:
                     
         return dummy.next
 
+    def reverse_between_rec(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+        def reverse(before: Optional[head], left: int, right: int):
+            if right == left:
+                return before.next
+
+            if before:
+                first = before.next
+            else:
+                before = None
+
+            if right - left > 1:
+                rev_sublist_end = reverse(first, left + 1, right - 1)
+                rev_sublist_start = first.next
+                last = rev_sublist_end.next
+            else:
+                last = first.next
+                rev_sublist_start = first
+                rev_sublist_end = last
+
+            after = last.next
+            before.next = last
+            last.next = rev_sublist_start
+            rev_sublist_end.next = first
+            first.next = after
+            return first
+
+        dummy: Optional[ListNode] = ListNode(-1, head)
+        before: Optional[ListNode] = dummy
+        for i in range(1, left):
+            before = before.next
+
+        reverse(before, left, right)
+
+        return dummy.next
+
+
+
     def from_vec_to_list_it(self, vec: List[int]) -> Optional[ListNode]:
         if len(vec) == 0:
             return None
