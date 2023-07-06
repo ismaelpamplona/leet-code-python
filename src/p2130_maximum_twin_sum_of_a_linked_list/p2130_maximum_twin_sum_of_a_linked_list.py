@@ -1,4 +1,5 @@
 from typing import List, Optional
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -9,27 +10,37 @@ class ListNode:
             return f"Node {{\n{indent}  val: {self.val},\n{indent}  next: None\n{indent}}}"
         else:
             next_indent = indent + "    "
-            return f"Node {{\n{indent}  val: {self.val},\n{indent}  next: {self.next.__str__(next_indent)}\n{indent}}}"        
-        
-class Solution:
-    def delete_middle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if not head or not head.next:
-            return None
-            
-        dummy = ListNode(-1, head)
-        slow = dummy.next
-        prev = dummy.next
-        fast = dummy.next
+            return f"Node {{\n{indent}  val: {self.val},\n{indent}  next: {self.next.__str__(next_indent)}\n{indent}}}"
 
-        while slow and fast and fast.next:
-            prev = slow
+class Solution:
+    def pair_sum(self, head: Optional[ListNode]) -> int:
+        slow = head
+        fast = head
+        last = head
+        max_sum = 0
+
+        while slow and fast:
+            last = slow
             slow = slow.next
             fast = fast.next.next
-
-        prev.next = slow.next
-
-        return dummy.next
         
+        prev = None
+        while slow:
+            next_node = slow.next
+            slow.next = prev
+            prev = slow
+            slow = next_node
+
+        last.next = prev
+        start = head
+        while start and prev:
+            max_sum = max(max_sum, start.val + prev.val)
+            start = start.next
+            prev = prev.next
+
+        return max_sum
+
+
     def from_vec_to_list_it(self, vec: List[int]) -> Optional[ListNode]:
         if len(vec) == 0:
             return None
@@ -37,11 +48,11 @@ class Solution:
         cur = head
         for i in range(1, len(vec)):
             cur.next = ListNode(vec[i])
-            cur = cur.next
+            cur = cur.next 
         return head
-    
+
     def from_vec_to_list_rec(self, vec: List[int], n = 0) -> Optional[ListNode]:
-        if n >= len(vec):
+        if n == len(vec):
             return None
         head = ListNode(vec[n])
         head.next = Solution().from_vec_to_list_rec(vec, n + 1)
@@ -54,3 +65,5 @@ class Solution:
             vec.append(cur.val)
             cur = cur.next
         return vec
+
+    

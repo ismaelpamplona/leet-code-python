@@ -32,3 +32,5 @@ def test_case_04():
     output = []
     result1 = Solution().delete_middle(head1)
     assert Solution().from_list_to_vec(result1) == output
+
+    
