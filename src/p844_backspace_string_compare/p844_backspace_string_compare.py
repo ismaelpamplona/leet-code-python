@@ -4,7 +4,8 @@ class Solution:
             stack: List(str) = []
             for c in s1:
                 if c == '#':
-                    stack.pop()
+                    if stack:
+                        stack.pop()
                 else:
                     stack.append(c)
 

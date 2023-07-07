@@ -17,3 +17,9 @@ def test_case_03():
     t = "b"
     result = Solution().backspace_compare(s, t)
     assert result == False
+
+def test_case_04():
+    s = "y#fo##f"
+    t = "y#f#o##f"
+    result = Solution().backspace_compare(s, t)
+    assert result == True    
