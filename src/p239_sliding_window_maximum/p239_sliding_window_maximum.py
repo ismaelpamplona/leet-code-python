@@ -10,7 +10,7 @@ class Solution:
                 q.pop()
             q.append(i)
 
-            if i + k == i:
+            if q[0] + k == i:
                 q.popleft()
 
             if i >= k - 1:
